@@ -52,6 +52,7 @@ proxies = {
 symbols = requests.get(
     "https://api.binance.com/api/v3/exchangeInfo", proxies=proxies)
 symbols = symbols.json()
+print(symbols)
 symbols = symbols["symbols"]
 
 future_pair = requests.get(
