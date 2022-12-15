@@ -46,7 +46,8 @@ dv = diffper["val"]
 ex = []
 
 proxies = {
-    'http': 'http://14.140.131.82:3128'
+    'http': '134.238.252.143:8080',
+   'https': '134.238.252.143:8080'
 }
 
 symbols = requests.get(
