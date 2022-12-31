@@ -48,6 +48,7 @@ fut_per_set = 1.3
 spot_per_set = 2
 main_coin = ["ADAUSDT", "BTCUSDT", "ETHUSDT", "SOLUSDT", "MATICUSDT", "CAKEUSDT"]
 main_coin_pr = 0.5
+minus_main_coin_pr = -0.5
 
 
 symbols = requests.get(
@@ -113,7 +114,7 @@ def on_messege(binancesocket, messege):
             elif json_messege['s'] in fut_pair and json_messege['s'] not in ex:
                 ex.append(json_messege['s'])
                 tbot(y, json_messege['s'])
-    if percentage >= main_coin_pr or (percentage + (percentage*2)) >= main_coin_pr:
+    if percentage <= minus_main_coin_pr or percentage >= main_coin_pr:
         for i in main_coin:
             if i == json_messege['s']:
                 y = [percentage, time.ctime(time.time(
